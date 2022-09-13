@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "5004631539",
+    "project_id": "habitica-mad-project",
+    "storage_bucket": "habitica-mad-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:5004631539:android:71618aed7ed0d3e5158686",
+        "android_client_info": {
+          "package_name": "com.web.mad"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "5004631539-bkb9tfenptl07lksql2g28teioencgdp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYxmxChSnbppufykInyvjvoVezleligsQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "5004631539-bkb9tfenptl07lksql2g28teioencgdp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
