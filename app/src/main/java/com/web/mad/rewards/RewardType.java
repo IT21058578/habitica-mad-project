@@ -2,6 +2,7 @@ package com.web.mad.rewards;
 
 public enum RewardType {
     REPEATABLE("Repeatable"),
+    LIMITED("Limited"),
     ONETIME("One-time");
 
     private String text;

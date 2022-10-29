@@ -4,24 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RewardsMainActivity">
+    tools:context=".RewardsMainActivity"
+    android:background="@drawable/res_gradient_background"
+    android:clipToPadding="false">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:clipToPadding="false">
 
         <LinearLayout
             android:id="@+id/scrollViewLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:animateLayoutChanges="true"
-            android:dividerPadding="8dp"
+            android:clipToPadding="false"
             android:orientation="vertical"
-            android:padding="8dp"
-            android:showDividers="middle"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"></LinearLayout>
+            app:layout_constraintTop_toTopOf="parent">
+
+        </LinearLayout>
+
     </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

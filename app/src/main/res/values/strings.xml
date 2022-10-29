@@ -1,5 +1,48 @@
 <resources>
-    <string name="app_name">HabiticaMadProject</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="app_name">DoItSolo</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--Activity titles-->
+    <string name="title_rewards_create_new">Create New Reward</string>
+    <string name="title_rewards_edit_existing">Edit Existing Reward</string>
+    <string name="title_rewards">Rewards</string>
+
+    <!--For reward item fragment-->
+    <string name="reward_buy">Buy</string>
+    <string name="reward_bought">Bought</string>
+    <string name="reward_use">Use</string>
+    <string name="reward_used">Used</string>
+    <string name="reward_reset">Reset</string>
+    <string name="reward_edit">Edit</string>
+    <string name="reward_last_used">Last Used</string>
+    <string name="reward_last_bought">Last Bought</string>
+    <string name="reward_last_edited">Last Edited</string>
+    <string name="reward_created">Created</string>
+
+    <!--For reward item types-->
+    <string-array name="reward_types">
+        <item>Repeatable</item>
+        <item>One-Time</item>
+        <item>Limited</item>
+    </string-array>
+    <string name="reward_type_repeatable">Repeatable</string>
+    <string name="reward_type_one_time">One-Time</string>
+    <string name="reward_type_limited">Limited</string>
+
+    <!--For reward add/edit activity-->
+    <string name="reward_name">Name</string>
+    <string name="reward_name_placeholder">Name</string>
+    <string name="reward_price">Price</string>
+    <string name="reward_price_placeholder">0</string>
+    <string name="reward_type">Type</string>
+    <string name="reward_description">Description</string>
+    <string name="reward_description_placeholder">Type your description here…</string>
+    <string name="reward_save">Save</string>
+    <string name="reward_cancel">Cancel</string>
+    <string name="reward_delete">Delete</string>
+    <string name="reward_expand_item">Expand reward item</string>
+
+    <!--For reward delete dialog-->
+    <string name="reward_are_you_sure">Are you sure?</string>
+    <string name="reward_are_you_sure_expound">Are you sure you want to delete this reward? It will be lost forever!</string>
 </resources>

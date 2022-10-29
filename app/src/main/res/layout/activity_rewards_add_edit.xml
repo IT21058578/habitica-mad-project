@@ -1,106 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="32dp"
-    tools:context=".RewardsAddEditActivity">
+    android:padding="16dp"
+    tools:context=".RewardsAddEditActivity"
+    android:background="@drawable/res_gradient_background">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Name"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Price"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rewardAddEditEditTextName" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Description"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rewardAddEditEditTextPrice" />
-
-    <EditText
-        android:id="@+id/rewardAddEditEditTextName"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:ems="10"
-        android:hint="Name"
-        android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        android:layout_height="match_parent"
+        android:background="@drawable/res_rounded_border"
+        android:padding="32dp">
 
-    <EditText
-        android:id="@+id/rewardAddEditEditTextDescription"
-        android:layout_width="match_parent"
-        android:layout_height="128dp"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="Type your description here...."
-        android:inputType="textMultiLine"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/reward_name"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/rewardAddEditDeleteBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginTop="32dp"
-        android:text="Delete"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rewardAddEditEditTextDescription" />
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/reward_type"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rewardAddEditEditTextName" />
 
-    <Button
-        android:id="@+id/rewardAddEditSaveBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginTop="16dp"
-        android:text="Save"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/rewardAddEditCancelBtn"
-        app:layout_constraintTop_toBottomOf="@+id/rewardAddEditDeleteBtn" />
+        <EditText
+            android:id="@+id/rewardAddEditEditTextName"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:ems="10"
+            android:hint="@string/reward_name_placeholder"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    <Button
-        android:id="@+id/rewardAddEditCancelBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginTop="16dp"
-        android:text="Cancel"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/rewardAddEditSaveBtn"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rewardAddEditDeleteBtn" />
+        <EditText
+            android:id="@+id/rewardAddEditEditTextPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/reward_price_placeholder"
+            android:inputType="number"
+            android:minHeight="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-    <EditText
-        android:id="@+id/rewardAddEditEditTextPrice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="0"
-        android:inputType="number"
-        android:minHeight="48dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/reward_description"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rewardAddEditEditTextPrice" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <EditText
+            android:id="@+id/rewardAddEditEditTextDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="@string/reward_description_placeholder"
+            android:inputType="textMultiLine"
+            app:layout_constraintBottom_toTopOf="@+id/rewardAddEditDeleteBtn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/reward_price"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rewardAddEditSpinnerType" />
+
+        <Spinner
+            android:id="@+id/rewardAddEditSpinnerType"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rewardAddEditDeleteBtn"
+            tools:layout_editor_absoluteX="-8dp">
+
+            <Button
+                android:id="@+id/rewardAddEditCancelBtn"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="@string/reward_cancel"
+                android:textColor="@color/blue_dark"
+                app:layout_constraintEnd_toStartOf="@+id/rewardAddEditSaveBtn"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/rewardAddEditSaveBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:drawableLeft="@drawable/ic_baseline_save_24"
+                android:drawableTint="@color/white"
+                android:text="@string/reward_save"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/rewardAddEditCancelBtn"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/rewardAddEditDeleteBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:backgroundTint="@color/red_app"
+            android:drawableLeft="@drawable/ic_baseline_delete_forever_24"
+            android:drawableTint="@color/white"
+            android:text="@string/reward_delete"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rewardAddEditEditTextDescription" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

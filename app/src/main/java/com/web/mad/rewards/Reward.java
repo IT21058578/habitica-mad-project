@@ -1,6 +1,8 @@
 package com.web.mad.rewards;
 
-import java.time.LocalDateTime;
+import com.google.firebase.Timestamp;
+
+import java.util.Date;
 
 public class Reward {
     private String documentId;
@@ -8,45 +10,66 @@ public class Reward {
     private String name;
     private String description;
     private int price;
-    private int bought;
-    private int used;
+    private int boughtCount;
+    private int usedCount;
+    private int available;
+    private boolean isUsed; //For one-time rewards.
+    private boolean isBought; //For One-time rewards.
     private RewardType type;
-    private LocalDateTime createdAt;
-    private LocalDateTime lastBoughtAt;
-    private LocalDateTime lastUsedAt;
-    private LocalDateTime lastEditedAt;
+    private long createdAt;
+    private long lastBoughtAt;
+    private long lastUsedAt;
+    private long lastEditedAt;
+
+    public void buyOne() {
+        this.boughtCount++;
+        this.available++;
+    }
+
+    public void useOne() {
+        this.usedCount++;
+        this.available--;
+    }
 
     public Reward() {
+
     }
 
-    public Reward(String userId, String name, String description, int price, int bought, int used, RewardType type, LocalDateTime createdAt, LocalDateTime lastBoughtAt, LocalDateTime lastUsedAt, LocalDateTime lastEditedAt) {
-        this.userId = userId;
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.bought = bought;
-        this.used = used;
-        this.type = type;
-        this.createdAt = createdAt;
-        this.lastBoughtAt = lastBoughtAt;
-        this.lastUsedAt = lastUsedAt;
-        this.lastEditedAt = lastEditedAt;
-    }
-
-    public Reward(String documentId, String userId, String name, String description, int price, int bought, int used, RewardType type, LocalDateTime createdAt, LocalDateTime lastBoughtAt, LocalDateTime lastUsedAt, LocalDateTime lastEditedAt) {
+    public Reward(String documentId, String userId, String name, String description, int price, int boughtCount, int usedCount, boolean isUsed, boolean isBought, RewardType type, long createdAt, long lastBoughtAt, long lastUsedAt, long lastEditedAt) {
         this.documentId = documentId;
         this.userId = userId;
         this.name = name;
         this.description = description;
         this.price = price;
-        this.bought = bought;
-        this.used = used;
+        this.boughtCount = boughtCount;
+        this.usedCount = usedCount;
+        this.available = boughtCount - usedCount;
+        this.isUsed = isUsed;
+        this.isBought = isBought;
         this.type = type;
         this.createdAt = createdAt;
         this.lastBoughtAt = lastBoughtAt;
         this.lastUsedAt = lastUsedAt;
         this.lastEditedAt = lastEditedAt;
     }
+
+    public Reward(String userId, String name, String description, int price, int boughtCount, int usedCount, boolean isUsed, boolean isBought, RewardType type, long createdAt, long lastBoughtAt, long lastUsedAt, long lastEditedAt) {
+        this.userId = userId;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.boughtCount = boughtCount;
+        this.usedCount = usedCount;
+        this.available = boughtCount - usedCount;
+        this.isUsed = isUsed;
+        this.isBought = isBought;
+        this.type = type;
+        this.createdAt = createdAt;
+        this.lastBoughtAt = lastBoughtAt;
+        this.lastUsedAt = lastUsedAt;
+        this.lastEditedAt = lastEditedAt;
+    }
+
 
     public String getDocumentId() {
         return documentId;
@@ -88,20 +111,44 @@ public class Reward {
         this.price = price;
     }
 
-    public int getBought() {
-        return bought;
+    public int getBoughtCount() {
+        return boughtCount;
     }
 
-    public void setBought(int bought) {
-        this.bought = bought;
+    public void setBoughtCount(int boughtCount) {
+        this.boughtCount = boughtCount;
     }
 
-    public int getUsed() {
-        return used;
+    public int getUsedCount() {
+        return usedCount;
     }
 
-    public void setUsed(int used) {
-        this.used = used;
+    public void setUsedCount(int used) {
+        this.usedCount = used;
+    }
+
+    public int getAvailable() {
+        return available;
+    }
+
+    public void setAvailable(int available) {
+        this.available = available;
+    }
+
+    public boolean isUsed() {
+        return isUsed;
+    }
+
+    public void setUsed(boolean usedCount) {
+        isUsed = usedCount;
+    }
+
+    public boolean isBought() {
+        return isBought;
+    }
+
+    public void setBought(boolean bought) {
+        isBought = bought;
     }
 
     public RewardType getType() {
@@ -112,35 +159,35 @@ public class Reward {
         this.type = type;
     }
 
-    public LocalDateTime getCreatedAt() {
+    public long getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
+    public void setCreatedAt(long createdAt) {
         this.createdAt = createdAt;
     }
 
-    public LocalDateTime getLastBoughtAt() {
+    public long getLastBoughtAt() {
         return lastBoughtAt;
     }
 
-    public void setLastBoughtAt(LocalDateTime lastBoughtAt) {
+    public void setLastBoughtAt(long lastBoughtAt) {
         this.lastBoughtAt = lastBoughtAt;
     }
 
-    public LocalDateTime getLastUsedAt() {
+    public long getLastUsedAt() {
         return lastUsedAt;
     }
 
-    public void setLastUsedAt(LocalDateTime lastUsedAt) {
+    public void setLastUsedAt(long lastUsedAt) {
         this.lastUsedAt = lastUsedAt;
     }
 
-    public LocalDateTime getLastEditedAt() {
+    public long getLastEditedAt() {
         return lastEditedAt;
     }
 
-    public void setLastEditedAt(LocalDateTime lastEditedAt) {
+    public void setLastEditedAt(long lastEditedAt) {
         this.lastEditedAt = lastEditedAt;
     }
 }

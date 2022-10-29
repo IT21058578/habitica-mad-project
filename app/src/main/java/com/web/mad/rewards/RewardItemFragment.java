@@ -1,7 +1,6 @@
 package com.web.mad.rewards;
 
 import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -16,9 +15,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.firebase.Timestamp;
 import com.web.mad.R;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -35,7 +35,7 @@ public class RewardItemFragment extends Fragment {
     private TextView detailsCreatedTxt;
     private TextView detailsBoughtTxt;
     private TextView detailsUsedTxt;
-    private TextView boughtTxt;
+    private TextView availableTxt;
     private TextView priceTxt;
     private TextView nameTxt;
     private TextView typeTxt;
@@ -70,9 +70,12 @@ public class RewardItemFragment extends Fragment {
         String rewardCreated = getArguments().getString("rewardCreated", "...");
         String rewardBought = getArguments().getString("rewardBought", "0");
         String rewardPrice = getArguments().getString("rewardPrice", "0");
+        String rewardAvailable = getArguments().getString("rewardAvailable", "0");
         String rewardUsed = getArguments().getString("rewardUsed", "0");
         String rewardType = getArguments().getString("rewardType", "...");
         String rewardName = getArguments().getString("rewardName", "...");
+        String rewardUserId = getArguments().getString("rewardUserId", null);
+        String rewardDocumentId = getArguments().getString("rewardDocumentId", null);
 
         //Grabbing all dynamic views in the reward item.
         detailsDescriptionTxt = view.findViewById(R.id.rewardItemDetailsDescription);
@@ -84,7 +87,7 @@ public class RewardItemFragment extends Fragment {
         detailsUsedTxt = view.findViewById(R.id.rewardItemDetailsUsed);
         detailsLayout = view.findViewById(R.id.rewardItemDetails);
         itemLayout = view.findViewById(R.id.rewardItemLayout);
-        boughtTxt = view.findViewById(R.id.rewardItemBought);
+        availableTxt = view.findViewById(R.id.rewardItemAvailable);
         priceTxt = view.findViewById(R.id.rewardItemPrice);
         nameTxt = view.findViewById(R.id.rewardItemName);
         typeTxt = view.findViewById(R.id.rewardItemType);
@@ -100,10 +103,17 @@ public class RewardItemFragment extends Fragment {
         detailsCreatedTxt.setText(rewardCreated);
         detailsBoughtTxt.setText(rewardBought);
         detailsUsedTxt.setText(rewardUsed);
-        boughtTxt.setText(rewardBought);
+        availableTxt.setText(rewardAvailable);
         priceTxt.setText(rewardPrice);
         typeTxt.setText(rewardType);
         nameTxt.setText(rewardName);
+
+        //Individualized display logic.
+        if (rewardType.equals(RewardType.ONETIME.getText())) {
+            typeTxt.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                    R.drawable.ic_baseline_looks_one_24, 0, 0, 0
+            );
+        }
 
         detailsLayout.setVisibility(View.GONE);
 
@@ -111,17 +121,17 @@ public class RewardItemFragment extends Fragment {
 
         buyBtn.setOnClickListener(v -> {
             Log.d("DEBUG", "RewardItemFragment's buy button clicked!");
-            listener.onBuyBtnClick();
+            listener.onBuyBtnClick(rewardUserId, rewardDocumentId, getTag());
         });
 
         useBtn.setOnClickListener(v -> {
             Log.d("DEBUG", "RewardItemFragment's use button clicked!");
-            listener.onUseBtnClick();
+            listener.onUseBtnClick(rewardUserId, rewardDocumentId, getTag());
         });
 
         editBtn.setOnClickListener(v -> {
             Log.d("DEBUG", "RewardItemFragment's edit button clicked!");
-            listener.onEditBtnClick();
+            listener.onEditBtnClick(rewardUserId, rewardDocumentId, getTag());
         });
 
         itemLayout.setOnClickListener(v -> {
@@ -150,28 +160,31 @@ public class RewardItemFragment extends Fragment {
         RewardItemFragment rewardItemFragment = new RewardItemFragment();
 
         Bundle args = new Bundle();
-        args.putString("rewardName", reward.getName());
+        args.putString("rewardUserId", reward.getUserId());
+        args.putString("rewardDocumentId", reward.getDocumentId());
         args.putString("rewardType", reward.getType().getText());
+        args.putString("rewardName", reward.getName());
         args.putString("rewardPrice", Integer.toString(reward.getPrice()));
-        args.putString("rewardBought",Integer.toString(reward.getBought()));
-        args.putString("rewardUsed", Integer.toString(reward.getUsed()));
-        args.putString("rewardLastBought", formatDateTime(reward.getLastBoughtAt()));
-        args.putString("rewardLastUsed", formatDateTime(reward.getLastUsedAt()) );
-        args.putString("rewardLastEdited", formatDateTime(reward.getLastEditedAt()) );
-        args.putString("rewardCreated", formatDateTime(reward.getCreatedAt()) );
+        args.putString("rewardAvailable", Integer.toString(reward.getAvailable()));
+        args.putString("rewardBought",Integer.toString(reward.getBoughtCount()));
+        args.putString("rewardUsed", Integer.toString(reward.getUsedCount()));
+        args.putString("rewardLastBought", formatDateTime(new Date(reward.getLastBoughtAt())));
+        args.putString("rewardLastUsed", formatDateTime(new Date(reward.getLastBoughtAt())));
+        args.putString("rewardLastEdited", formatDateTime(new Date(reward.getLastBoughtAt())));
+        args.putString("rewardCreated", formatDateTime(new Date(reward.getLastBoughtAt())));
         args.putString("rewardDescription", reward.getDescription());
 
         rewardItemFragment.setArguments(args);
         return rewardItemFragment;
     }
 
-    private static String formatDateTime (LocalDateTime dateTime) {
-        return String.format("%d / %d / %d", dateTime.getMonthValue(), dateTime.getDayOfMonth(), dateTime.getYear());
+    private static String formatDateTime (Date date) {
+        return String.format("%d / %d / %d", date.getMonth() + 1, date.getDate(), date.getYear() + 1900);
     }
 
     public interface OnRewardItemBtnClickListener {
-        void onBuyBtnClick();
-        void onUseBtnClick();
-        void onEditBtnClick();
+        void onBuyBtnClick(String userId, String documentId, String tag);
+        void onUseBtnClick(String userId, String documentId, String tag);
+        void onEditBtnClick(String userId, String documentId, String tag);
     }
 }

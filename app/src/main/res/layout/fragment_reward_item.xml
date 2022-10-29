@@ -5,16 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".rewards.RewardItemFragment"
-    android:animateLayoutChanges="true">
+    android:animateLayoutChanges="true"
+    android:clipToPadding="false">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/rewardItemLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp"
         android:layout_marginBottom="8dp"
-        android:background="@drawable/res_card_border"
+        android:animateLayoutChanges="true"
+        android:background="@drawable/res_rounded_border"
         android:clickable="true"
-        android:animateLayoutChanges="true">
+        android:clipToPadding="false"
+        android:elevation="4dp"
+        android:padding="8dp">
 
         <TextView
             android:id="@+id/rewardItemName"
@@ -22,10 +29,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginTop="4dp"
-            android:text="Reward_Item_Name"
+            android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginEnd="4dp"/>
 
         <TextView
             android:id="@+id/rewardItemType"
@@ -33,30 +41,53 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginTop="4dp"
-            android:text="Repeatable / One-Time"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rewardItemName" />
+            app:layout_constraintTop_toBottomOf="@+id/rewardItemName"
+            android:drawableStart="@drawable/ic_baseline_repeat_24"
+            android:drawableTint="@color/common_google_signin_btn_text_light"
+            android:drawablePadding="4dp" />
 
         <TextView
             android:id="@+id/rewardItemPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="36dp"
-            android:text="0"
-            android:textSize="24sp"
+
+            android:layout_marginEnd="4dp"
+            android:drawableStart="@drawable/ic_baseline_attach_money_24"
+            android:drawablePadding="-5dp"
+            android:drawableTint="@color/yellow_app"
+            android:gravity="center_vertical"
+            android:includeFontPadding="false"
+            android:scaleX="1.1"
+            android:scaleY="1.1"
+
+            android:text="10"
+            android:textColor="@color/yellow_app"
+            android:textSize="21sp"
             app:layout_constraintBottom_toTopOf="@+id/rewardItemUse"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.484" />
+            app:layout_constraintHorizontal_bias="0.82"
+            app:layout_constraintStart_toEndOf="@+id/rewardItemAvailable"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/rewardItemBought"
+            android:id="@+id/rewardItemAvailable"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="0"
             android:textSize="24sp"
+
+            android:text="10"
+            android:layout_marginEnd="4dp"
+            android:drawablePadding="2dp"
+            android:drawableStart="@drawable/ic_baseline_business_center_24"
+            android:drawableTint="@color/common_google_signin_btn_text_light"
+            android:gravity="center_vertical"
+            android:includeFontPadding="false"
+            android:scaleX="1.1"
+            android:scaleY="1.1"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/rewardItemType" />
@@ -67,7 +98,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginTop="4dp"
-            android:text="Buy"
+            android:text="@string/reward_buy"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/rewardItemType" />
 
@@ -77,7 +108,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="4dp"
-            android:text="Use"
+            android:text="@string/reward_use"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/rewardItemType" />
 
@@ -86,9 +117,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
+            android:contentDescription="@string/reward_expand_item"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rewardItemBought"
+            app:layout_constraintTop_toBottomOf="@+id/rewardItemAvailable"
             app:srcCompat="@drawable/ic_baseline_keyboard_arrow_down_24" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -106,19 +138,24 @@
 
             <Button
                 android:id="@+id/rewardItemEdit"
+                style="?android:attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="Edit"
+                android:text="@string/reward_edit"
+                android:textColor="@color/blue_dark"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
+                android:layout_marginEnd="4dp"
+                android:drawableLeft="@drawable/ic_baseline_edit_24"
+                android:drawableTint="@color/blue_dark"
+                />
 
             <TextView
                 android:id="@+id/rewardItemDetailsDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Proin libero nunc consequat interdum."
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -147,48 +184,48 @@
                         android:id="@+id/textView7"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="right"
-                        android:text="Bought"
+                        android:gravity="end"
+                        android:text="@string/reward_bought"
                         android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView12"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="right"
-                        android:text="Used"
+                        android:gravity="end"
+                        android:text="@string/reward_used"
                         android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView13"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="right"
-                        android:text="Last Bought"
+                        android:gravity="end"
+                        android:text="@string/reward_last_bought"
                         android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView14"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="right"
-                        android:text="Last Used"
+                        android:gravity="end"
+                        android:text="@string/reward_last_used"
                         android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/textView15"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="right"
-                        android:text="Last Edited"
+                        android:gravity="end"
+                        android:text="@string/reward_last_edited"
                         android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView16"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="right"
-                        android:text="Created"
+                        android:gravity="end"
+                        android:text="@string/reward_created"
                         android:textSize="14sp" />
 
                 </LinearLayout>
@@ -207,42 +244,36 @@
                         android:id="@+id/rewardItemDetailsBought"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="0"
                         android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/rewardItemDetailsUsed"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="0"
                         android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/rewardItemDetailsLastBought"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="9/14/2022"
                         android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/rewardItemDetailsLastUsed"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="9/14/2022"
                         android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/rewardItemDetailsLastEdited"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="9/14/2022"
                         android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/rewardItemDetailsCreated"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="9/14/2022"
                         android:textSize="14sp" />
 
                 </LinearLayout>

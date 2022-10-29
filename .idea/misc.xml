@@ -3,22 +3,39 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/acer/AndroidStudioProjects/HabiticaMadProject/app/src/main/res/drawable-v24/res_more_rounded_border.xml" value="0.1" />
+        <entry key="..\:/Users/acer/AndroidStudioProjects/HabiticaMadProject/app/src/main/res/drawable/ic_add.xml" value="0.142" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/HabiticaMadProject/app/src/main/res/drawable/ic_arrow_down.xml" value="0.2265" />
+        <entry key="..\:/Users/acer/AndroidStudioProjects/HabiticaMadProject/app/src/main/res/drawable/ic_baseline_add_box_24_white.xml" value="0.1" />
+        <entry key="..\:/Users/acer/AndroidStudioProjects/HabiticaMadProject/app/src/main/res/drawable/ic_baseline_delete_forever_24.xml" value="0.1" />
+        <entry key="..\:/Users/acer/AndroidStudioProjects/HabiticaMadProject/app/src/main/res/drawable/ic_baseline_edit_24.xml" value="0.1" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/HabiticaMadProject/app/src/main/res/drawable/ic_baseline_keyboard_arrow_down_24.xml" value="0.2265" />
+        <entry key="..\:/Users/acer/AndroidStudioProjects/HabiticaMadProject/app/src/main/res/drawable/ic_baseline_looks_one_24.xml" value="0.118" />
+        <entry key="..\:/Users/acer/AndroidStudioProjects/HabiticaMadProject/app/src/main/res/drawable/ic_baseline_stars_24.xml" value="0.1" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/HabiticaMadProject/app/src/main/res/drawable/ic_cash.xml" value="0.2265" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/HabiticaMadProject/app/src/main/res/drawable/ic_cash_foreground.xml" value="0.2265" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/HabiticaMadProject/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2265" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/HabiticaMadProject/app/src/main/res/drawable/ic_long_empty_divider.xml" value="0.2265" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/HabiticaMadProject/app/src/main/res/drawable/res_card_border.xml" value="0.2265" />
+        <entry key="..\:/Users/acer/AndroidStudioProjects/HabiticaMadProject/app/src/main/res/drawable/res_card_shadow_foreground.xml" value="0.2595" />
+        <entry key="..\:/Users/acer/AndroidStudioProjects/HabiticaMadProject/app/src/main/res/drawable/res_gradient_background.xml" value="0.162" />
+        <entry key="..\:/Users/acer/AndroidStudioProjects/HabiticaMadProject/app/src/main/res/drawable/res_rounded.xml" value="0.2585" />
+        <entry key="..\:/Users/acer/AndroidStudioProjects/HabiticaMadProject/app/src/main/res/layout/action_cash_display.xml" value="0.1" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/HabiticaMadProject/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/HabiticaMadProject/app/src/main/res/layout/activity_rewards_add_edit.xml" value="0.25" />
-        <entry key="..\:/Users/acer/AndroidStudioProjects/HabiticaMadProject/app/src/main/res/layout/activity_rewards_main.xml" value="0.21535745807590467" />
+        <entry key="..\:/Users/acer/AndroidStudioProjects/HabiticaMadProject/app/src/main/res/layout/activity_rewards_main.xml" value="0.2" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/HabiticaMadProject/app/src/main/res/layout/fragment_reward_delete_dialog.xml" value="0.264" />
-        <entry key="..\:/Users/acer/AndroidStudioProjects/HabiticaMadProject/app/src/main/res/layout/fragment_reward_item.xml" value="0.20863616930312098" />
+        <entry key="..\:/Users/acer/AndroidStudioProjects/HabiticaMadProject/app/src/main/res/layout/fragment_reward_item.xml" value="0.264" />
+        <entry key="..\:/Users/acer/AndroidStudioProjects/HabiticaMadProject/app/src/main/res/layout/menu_rewards.xml" value="0.4" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/HabiticaMadProject/app/src/main/res/layout/sample_reward_item_view.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/acer/AndroidStudioProjects/HabiticaMadProject/app/src/main/res/layout/spinner_reward_item.xml" value="0.264" />
+        <entry key="..\:/Users/acer/AndroidStudioProjects/HabiticaMadProject/app/src/main/res/layout/spinner_reward_style.xml" value="0.20863616930312098" />
+        <entry key="..\:/Users/acer/AndroidStudioProjects/HabiticaMadProject/app/src/main/res/layout/spinner_rewards.xml" value="0.10196406184705391" />
+        <entry key="..\:/Users/acer/AndroidStudioProjects/HabiticaMadProject/app/src/main/res/layout/toolbar_rewards_main.xml" value="0.1" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/HabiticaMadProject/app/src/main/res/layout/view_reward_item.xml" value="0.264" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/HabiticaMadProject/app/src/main/res/layout/view_reward_item_card_test.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/HabiticaMadProject/app/src/main/res/layout/view_reward_item_test.xml" value="0.264" />
+        <entry key="..\:/Users/acer/AndroidStudioProjects/HabiticaMadProject/app/src/main/res/menu/menu_rewards.xml" value="0.1" />
       </map>
     </option>
   </component>
