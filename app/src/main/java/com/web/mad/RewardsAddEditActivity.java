@@ -12,16 +12,28 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.web.mad.rewards.Reward;
 import com.web.mad.rewards.RewardDeleteDialogFragment;
+import com.web.mad.rewards.RewardType;
 
+import java.time.Instant;
 import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 
 public class RewardsAddEditActivity extends AppCompatActivity implements RewardDeleteDialogFragment.OnDeleteDialogBtnClickListener {
     private Button btnDelete;
@@ -32,8 +44,13 @@ public class RewardsAddEditActivity extends AppCompatActivity implements RewardD
     private Button btnCancel;
     private Spinner spnType;
 
-    private final FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private final ObjectMapper mapper = new ObjectMapper();
+    private final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    private final String uId = user.getUid();
+
+    private final DatabaseReference db = FirebaseDatabase.getInstance().getReference();
+    private final DatabaseReference userReference = db.child("users").child(uId);
+    private final DatabaseReference rewardsReference = userReference.child("rewards");
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,52 +120,75 @@ public class RewardsAddEditActivity extends AppCompatActivity implements RewardD
     }
 
     public void onSaveBtnClick() {
-        String userId = getIntent().getStringExtra("userId");
-        String documentId = getIntent().getStringExtra("documentId");
-        DocumentReference docRef = db.collection("users").document(userId)
-                .collection("rewards").document(documentId);
-        docRef.get()
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        DocumentSnapshot document = task.getResult();
-                        if (document.exists()) {
-                            Log.d("DEBUG","Successfully retrieved document from firestore.");
-                            Reward reward = document.toObject(Reward.class);
-                            assert reward != null;
-                            //TODO: Logic to change reward type.
-                            reward.setName(getIntent().getStringExtra("rewardName"));
-                            reward.setPrice(Integer.parseInt(getIntent().getStringExtra("rewardPrice")));
-                            reward.setDescription(getIntent().getStringExtra("rewardDescription"));
-                            docRef.update(mapper.convertValue(reward, Map.class));
-                            finish(); //TODO: Logic to go back with some confirmation.
-                        } else {
-                            Log.e("ERROR", "Document does not exist");
-                        }
-                    } else {
-                        Log.e("ERROR", "Could not get data from firestore.");
-                    }
-                });
+        long currentTime = Instant.now().toEpochMilli();
+        String documentId = getIntent().getStringExtra("rewardDocumentId");
+
+        OnCompleteListener<Void> rewardSaveListener = task -> {
+            if (task.isSuccessful()) {
+                Log.d("DEBUG", "Submitted reward successfully");
+                Toast.makeText(this, "Reward successfully submitted!", Toast.LENGTH_SHORT).show();
+                finish();
+            } else {
+                Log.w("WARN", "Failed to submit reward", task.getException());
+                Toast.makeText(this, "Could not submit reward...", Toast.LENGTH_SHORT).show();
+            }
+        };
+
+        if (documentId.isEmpty()) {
+            //Reward doesnt exist
+            Reward reward = new Reward(
+                    user.getUid(), UUID.randomUUID().toString(),
+                    etName.getText().toString(),
+                    etDesc.getText().toString(),
+                    Integer.parseInt(etPrice.getText().toString()),
+                    0, 0, false, false, RewardType.REPEATABLE,
+                    currentTime, currentTime, currentTime, currentTime
+            );
+
+            rewardsReference.child(reward.getDocumentId())
+                    .setValue(reward).addOnCompleteListener(rewardSaveListener);
+        } else {
+            //Reward exists already
+            OnCompleteListener<DataSnapshot> getRewardListener = task -> {
+                if (task.isSuccessful()) {
+                    Log.d("DEBUG", "Reward acquired from DB successfully");
+
+                    Reward reward = task.getResult().getValue(Reward.class);
+                    reward.setName(etName.getText().toString());
+                    reward.setDescription(etDesc.getText().toString());
+                    reward.setPrice(Integer.parseInt(etPrice.getText().toString()));
+
+                    rewardsReference.child(reward.getDocumentId())
+                            .setValue(reward).addOnCompleteListener(rewardSaveListener);
+                }
+            };
+            rewardsReference.child(documentId)
+                    .get().addOnCompleteListener(getRewardListener);
+        }
     }
 
     @Override
     public void onDeleteBtnClick() {
-        String userId = getIntent().getStringExtra("userId");
-        String documentId = getIntent().getStringExtra("documentId");
-        DocumentReference docRef = db.collection("users").document(userId)
-                .collection("rewards").document(documentId);
-        docRef.get()
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        DocumentSnapshot document = task.getResult();
-                        if (document.exists()) {
-                            Log.d("DEBUG","Successfully retrieved document from firestore.");
-                            docRef.delete();
-                        } else {
-                            Log.e("ERROR", "Document does not exist");
-                        }
-                    } else {
-                        Log.e("ERROR", "Could not get data from firestore.");
-                    }
-                });
+        /* Delete button only works in the case of existing rewards */
+        String documentId = getIntent().getStringExtra("rewardDocumentId");
+        OnCompleteListener<Void> rewardDeleteListener = task -> {
+            if (task.isSuccessful()) {
+                Log.d("DEBUG", "Deleted reward successfully");
+                Toast.makeText(this, "Reward successfully deleted!", Toast.LENGTH_SHORT).show();
+                finish();
+            } else {
+                Log.w("WARN", "Failed to deleted reward", task.getException());
+                Toast.makeText(this, "Could not delete reward...", Toast.LENGTH_SHORT).show();
+            }
+        };
+
+        if (documentId.isEmpty()) {
+            //Reward doesn't exist
+            Log.e("ERROR", "User tried to delete a reward that does not exist");
+        } else {
+            //Reward already exists
+            rewardsReference.child(documentId)
+                    .removeValue().addOnCompleteListener(rewardDeleteListener);
+        }
     }
 }
