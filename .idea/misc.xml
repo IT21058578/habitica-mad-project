@@ -35,7 +35,19 @@
         <entry key="..\:/Users/acer/AndroidStudioProjects/HabiticaMadProject/app/src/main/res/layout/view_reward_item.xml" value="0.264" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/HabiticaMadProject/app/src/main/res/layout/view_reward_item_card_test.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/HabiticaMadProject/app/src/main/res/layout/view_reward_item_test.xml" value="0.264" />
+<<<<<<< HEAD
         <entry key="..\:/Users/acer/AndroidStudioProjects/HabiticaMadProject/app/src/main/res/menu/menu_rewards.xml" value="0.1" />
+=======
+        <entry key="app/src/main/res/drawable/cancelbutton.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_register.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_todo.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/input_file.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/retrieved_layout.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/update_data.xml" value="0.1" />
+>>>>>>> todolist
       </map>
     </option>
   </component>

@@ -45,4 +45,20 @@
     <!--For reward delete dialog-->
     <string name="reward_are_you_sure">Are you sure?</string>
     <string name="reward_are_you_sure_expound">Are you sure you want to delete this reward? It will be lost forever!</string>
+    <string name="TopicTextView">TASKS</string>
+    <string name="ItemTextView">Doing Home work</string>
+    <string name="ItemTextView2">Buy game for PS4</string>
+    <string name="ItemTextView3">Get key set from brother</string>
+    <string name="ItemTextView4">Format Laptop</string>
+    <string name="ItemTextView5">Get earphone</string>
+    <string name="DiscriptionText">Homework teaches students how to problem solve. Homework gives student another opportunity to review class material. Homework gives parents a chance to see what is being learned in school. Homework teaches students how to take responsibility for their part in the educational process.</string>
+    <string name="AddTopic">ADD NEW</string>
+    <string name="Datehint">JAN 01 2022</string>
+    <string name="Titlehint">Enter Title</string>
+    <string name="Discriptionhint">Enter Discription</string>
+    <string name="AddAdd">Add</string>
+    <string name="AddCancel">Cancel</string>
+    <string name="editconfirm">Update</string>
+    <string name="editCancel">Delete</string>
+    <string name="editTopic">EDIT</string>
 </resources>
