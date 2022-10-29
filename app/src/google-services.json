@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "658831697086",
+    "project_id": "doitsolo-a9968",
+    "storage_bucket": "doitsolo-a9968.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:658831697086:android:8fee09c0bb15dd03ba6aef",
+        "android_client_info": {
+          "package_name": "com.web.mad"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "658831697086-b2o3b31bjmegft2bfbc4hrv497ia9vsh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAk1wNqCiKEib4TWbrzu4cxWkGiFLUhHQI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "658831697086-b2o3b31bjmegft2bfbc4hrv497ia9vsh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
