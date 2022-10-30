@@ -19,10 +19,16 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.web.mad.user.User;
+
+import java.lang.ref.Reference;
 
 public class RegisterActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
+    private DatabaseReference reference;
 
     private EditText registerEmail,registerpass;
     private Button registerBtn;
@@ -35,6 +41,9 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+
+
 
         toolbar = findViewById(R.id.registerToolbar);
         setSupportActionBar(toolbar);
@@ -78,6 +87,11 @@ public class RegisterActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
 
                             if (task.isSuccessful()) {
+
+                                String userId = mAuth.getUid();
+                                User user = new User(0);
+                                FirebaseDatabase.getInstance().getReference().child("users").child(userId).child("profile").setValue(user);
+
                                 Intent intent = new Intent(RegisterActivity.this, com.web.mad.HomeActivity.class);
                                 startActivity(intent);
                                 finish();

@@ -13,7 +13,7 @@ import androidx.cardview.widget.CardView;
 public class HomeActivity extends AppCompatActivity {
 
 
-    private CardView loginBtn,budgetcal,goallist;
+    private CardView loginBtn,budgetcal,goallist,rewards;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +24,7 @@ public class HomeActivity extends AppCompatActivity {
         loginBtn = findViewById(R.id.todolist);
         budgetcal = findViewById(R.id.budgetCal);
         goallist = findViewById(R.id.goallist);
+        rewards = findViewById(R.id.rewards);
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -45,6 +46,14 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomeActivity.this, com.web.mad.GoalActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        rewards.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeActivity.this, com.web.mad.RewardsMainActivity.class);
                 startActivity(intent);
             }
         });
