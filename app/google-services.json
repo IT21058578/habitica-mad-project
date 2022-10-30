@@ -1,62 +1,34 @@
 {
   "project_info": {
-    "project_number": "756926818904",
-    "project_id": "todoapp-f6be9",
-    "storage_bucket": "todoapp-f6be9.appspot.com"
+    "project_number": "658831697086",
+    "firebase_url": "https://doitsolo-a9968-default-rtdb.firebaseio.com",
+    "project_id": "doitsolo-a9968",
+    "storage_bucket": "doitsolo-a9968.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:756926818904:android:e311a043698fe958f2b82d",
-        "android_client_info": {
-          "package_name": "com.example.todo"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "756926818904-8nhuhumo0029nr0j5fpscf4k2lcp2c59.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBiGvNmPu3dvBMhP6HVAFs28CB5uwy6u9I"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "756926818904-8nhuhumo0029nr0j5fpscf4k2lcp2c59.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:756926818904:android:f70058330890d21bf2b82d",
+        "mobilesdk_app_id": "1:658831697086:android:8fee09c0bb15dd03ba6aef",
         "android_client_info": {
           "package_name": "com.web.mad"
         }
       },
       "oauth_client": [
         {
-          "client_id": "756926818904-8nhuhumo0029nr0j5fpscf4k2lcp2c59.apps.googleusercontent.com",
+          "client_id": "658831697086-b2o3b31bjmegft2bfbc4hrv497ia9vsh.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBiGvNmPu3dvBMhP6HVAFs28CB5uwy6u9I"
+          "current_key": "AIzaSyAk1wNqCiKEib4TWbrzu4cxWkGiFLUhHQI"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "756926818904-8nhuhumo0029nr0j5fpscf4k2lcp2c59.apps.googleusercontent.com",
+              "client_id": "658831697086-b2o3b31bjmegft2bfbc4hrv497ia9vsh.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
