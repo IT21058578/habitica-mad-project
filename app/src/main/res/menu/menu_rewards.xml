@@ -5,7 +5,7 @@
         android:id="@+id/actionCashDisplay"
         android:iconTint="@color/white"
         android:actionLayout="@layout/action_cash_display"
-        android:title="Cash"
+        android:title="0"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/actionAddRewardBtn"

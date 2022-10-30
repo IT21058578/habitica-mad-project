@@ -77,7 +77,7 @@ public class RewardsAddEditActivity extends AppCompatActivity implements RewardD
         btnDelete.setVisibility(View.GONE);
         if (getIntent().getStringExtra("rewardName") != null) {
             etName.setText(getIntent().getStringExtra("rewardName"));
-            etPrice.setText(getIntent().getStringExtra("rewardPrice"));
+            etPrice.setText(String.valueOf(getIntent().getIntExtra("rewardPrice", 0)));
             etDesc.setText(getIntent().getStringExtra("rewardDescription"));
             btnDelete.setVisibility(View.VISIBLE);
         }
@@ -134,7 +134,7 @@ public class RewardsAddEditActivity extends AppCompatActivity implements RewardD
             }
         };
 
-        if (documentId.isEmpty()) {
+        if (documentId == null || documentId.isEmpty()) {
             //Reward doesnt exist
             Reward reward = new Reward(
                     user.getUid(), UUID.randomUUID().toString(),

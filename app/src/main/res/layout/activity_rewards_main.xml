@@ -8,10 +8,23 @@
     android:background="@drawable/res_gradient_background"
     android:clipToPadding="false">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/reviewToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#2196F3"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:clipToPadding="false">
+        android:layout_marginTop="56dp"
+        android:clipToPadding="false"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
 
         <LinearLayout
             android:id="@+id/scrollViewLayout"

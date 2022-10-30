@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -14,6 +15,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -55,6 +57,8 @@ public class RewardsMainActivity extends AppCompatActivity implements RewardItem
 
     private final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     private final String uId = user.getUid();
+    private MenuItem cashDisplay;
+    private Toolbar toolbar;
 
     private final DatabaseReference db = FirebaseDatabase.getInstance().getReference();
     private final DatabaseReference userReference = db.child("users").child(uId);
@@ -68,11 +72,17 @@ public class RewardsMainActivity extends AppCompatActivity implements RewardItem
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rewards_main);
 
+        toolbar = findViewById(R.id.reviewToolbar);
+        setSupportActionBar(toolbar);
+
         ValueEventListener currencyListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 User user = snapshot.getValue(User.class);
                 currency = user.getCurrency();
+                if (cashDisplay != null ) {
+                    cashDisplay.setTitle(String.valueOf(currency));
+                }
             }
 
             @Override
@@ -95,7 +105,7 @@ public class RewardsMainActivity extends AppCompatActivity implements RewardItem
                     String tag = UUID.randomUUID().toString();
                     transaction.add(R.id.scrollViewLayout, RewardItemFragment.newInstance(reward), tag);
                 }
-                transaction.commit();
+                transaction.commitAllowingStateLoss();
             }
 
             @Override
@@ -106,10 +116,14 @@ public class RewardsMainActivity extends AppCompatActivity implements RewardItem
         rewardsReference.addValueEventListener(rewardsListener);
     }
 
+    @Override
     public boolean onCreateOptionsMenu(@NonNull Menu menu) {
+        Log.d("DEBUG", "Creating options menu");
         getSupportActionBar().setTitle(R.string.title_rewards);
         getSupportActionBar().setElevation(0);
         getMenuInflater().inflate(R.menu.menu_rewards,menu);
+        cashDisplay = menu.findItem(R.id.actionCashDisplay);
+
         return super.onCreateOptionsMenu(menu);
     }
 
