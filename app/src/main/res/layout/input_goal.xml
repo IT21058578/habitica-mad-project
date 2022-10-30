@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="350dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bacground"
+    android:orientation="vertical"
+    android:padding="20dp"
+
+    >
+
+    <TextView
+        android:id="@+id/ddd"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:text="@string/ag1_title"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="39dp"
+        tools:layout_editor_absoluteY="29dp" />
+
+
+    <EditText
+        android:id="@+id/GoalName"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/edit_text_style"
+        android:hint="@string/ag1_hint_1"
+        android:inputType="textPersonName"
+        android:padding="15dp" />
+
+    <EditText
+        android:id="@+id/GoalDiscription"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@drawable/edit_text_style"
+        android:gravity="center"
+        android:hint="@string/ag1_hint2"
+        android:inputType="text|textMultiLine" />
+
+<!--    <EditText-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:background="@drawable/edit_text_style"-->
+<!--        android:hint="Date (ex - 2022/10/11)"-->
+<!--        android:inputType="textPersonName"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:padding="15dp" />-->
+
+    <Button
+        android:id="@+id/GoalAdd"
+        style="@style/MaterialAlertDialog.Material3"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:backgroundTint="@color/green"
+        android:layout_marginTop="20dp"
+        android:text="Add" />
+    <Button
+        android:id="@+id/GoalCancel"
+        style="@style/MaterialAlertDialog.Material3"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:backgroundTint="@color/green"
+        android:layout_marginTop="4dp"
+        android:text="Cancel" />
+
+</LinearLayout>
