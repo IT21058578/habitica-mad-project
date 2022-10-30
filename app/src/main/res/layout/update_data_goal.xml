@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="350dp"
+    android:layout_height="wrap_content"
+    android:padding="10dip"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/edittopic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingTop="20dp"
+        android:text="@string/editTopic"
+        android:textSize="25dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"></TextView>
+
+
+
+    <EditText
+        style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+        android:id="@+id/TitleEditGoal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/addinput"
+        android:hint="@string/Titlehint"
+        android:padding="12dp"
+        android:textSize="15dp"
+        android:gravity="left"
+        ></EditText>
+
+
+    <EditText
+        android:id="@+id/descriptionEditGoal"
+        style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/addinput"
+        android:hint="@string/Discriptionhint"
+        android:padding="12dp"
+        android:gravity="top"
+
+        android:textSize="15dp"
+
+        ></EditText>
+
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="25dp"
+        >
+
+        <Button
+            android:id="@+id/btneditdeleteGoal"
+
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_marginTop="19dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/cancelbutton"
+            android:text="@string/editCancel"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            >
+
+        </Button>
+        <Button
+
+            android:id="@+id/btneditUpdateGoal"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/roundbutton"
+            android:text="@string/editconfirm"
+            android:textColor="@color/white"
+            android:textSize="20dp">
+
+        </Button>
+
+    </LinearLayout>
+
+</LinearLayout>
+
+
+
+

@@ -10,11 +10,14 @@ public class Model {
         this.description = description;
         this.id = id;
         this.date = date;
+
     }
 
     public String getTask() {
         return task;
     }
+
+
 
     public void setTask(String task) {
         this.task = task;

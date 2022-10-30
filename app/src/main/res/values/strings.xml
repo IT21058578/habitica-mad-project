@@ -18,4 +18,39 @@
     <string name="editconfirm">Update</string>
     <string name="editCancel">Delete</string>
     <string name="editTopic">EDIT</string>
+
+
+    <string name="TopicTextView1">MY BUDGET</string>
+    <string name="TotalIncomeHeader">Total Income</string>
+    <string name="TotalExpencesHeader">Total Expences</string>
+    <string name="TotalLeftHeader">Total Left</string>
+    <string name="Left">55000.00</string>
+
+    <string name="IncomeHeader">My Income</string>
+    <string name="IncomeText">Salary</string>
+    <string name="IncomeText2">Stocks</string>
+    <string name="IncomeAmout">70000.00</string>
+    <string name="IncomeAmout2">15000.00</string>
+    <string name="TotalIncome">Total Income</string>
+    <string name="TotalIncomeAmout">85000.00</string>
+    <string name="Add">ADD</string>
+    <string name="done">DONE</string>
+
+    <string name="ExpenceHeader">My Expences</string>
+    <string name="ExpenceText1">Groceries</string>
+    <string name="ExpenceAmout1">5000.00</string>
+    <string name="ExpenceText2">Electricity</string>
+    <string name="ExpenceAmout2">3000.00</string>
+    <string name="ExpenceText3">Fuels</string>
+    <string name="ExpenceAmout3">5000.00</string>
+    <string name="ExpenceText4">Water</string>
+    <string name="ExpenceAmout4">2000.00</string>
+    <string name="TotalExpencesAmount">15000.00</string>
+
+
+    <string name="ag1_title">Add your Goal</string>
+    <string name="ag1_hint_1">Enter Your Goal here</string>
+    <string name="ag1_hint2">Description/comment</string>
+
+
 </resources>

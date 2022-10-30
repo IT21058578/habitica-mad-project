@@ -19,15 +19,33 @@
         <entry key="..\:/Users/acer/AndroidStudioProjects/HabiticaMadProject/app/src/main/res/layout/view_reward_item.xml" value="0.264" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/HabiticaMadProject/app/src/main/res/layout/view_reward_item_card_test.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/HabiticaMadProject/app/src/main/res/layout/view_reward_item_test.xml" value="0.264" />
+        <entry key="app/src/main/res/drawable/addbackground_color.xml" value="0.14" />
+        <entry key="app/src/main/res/drawable/bacground.xml" value="0.14" />
         <entry key="app/src/main/res/drawable/cancelbutton.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_home.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/edit_text_style.xml" value="0.1175" />
+        <entry key="app/src/main/res/layout/activity_budget_cal.xml" value="0.17980072463768115" />
+        <entry key="app/src/main/res/layout/activity_budget_cal2.xml" value="0.17980072463768115" />
+        <entry key="app/src/main/res/layout/activity_expence.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_goal.xml" value="0.17980072463768115" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.186004638671875" />
+        <entry key="app/src/main/res/layout/activity_income.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_todo.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/budgetcal.xml" value="0.17980072463768115" />
+        <entry key="app/src/main/res/layout/input_expence.xml" value="0.1" />
         <entry key="app/src/main/res/layout/input_file.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/retrieved_layout.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/input_goal.xml" value="0.17980072463768115" />
+        <entry key="app/src/main/res/layout/input_income.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/retrieved_layout.xml" value="0.18860626220703125" />
+        <entry key="app/src/main/res/layout/retrived_layout_expence.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/retrived_layout_goal.xml" value="0.17980072463768115" />
+        <entry key="app/src/main/res/layout/retrived_layout_income.xml" value="0.1" />
         <entry key="app/src/main/res/layout/update_data.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/update_data_expence.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/update_data_goal.xml" value="0.17980072463768115" />
+        <entry key="app/src/main/res/layout/update_data_income.xml" value="0.17980072463768115" />
       </map>
     </option>
   </component>
