@@ -58,6 +58,7 @@ public class RewardsMainActivity extends AppCompatActivity implements RewardItem
 
     private final DatabaseReference db = FirebaseDatabase.getInstance().getReference();
     private final DatabaseReference userReference = db.child("users").child(uId);
+    private final DatabaseReference profileReference = userReference.child("profile");
     private final DatabaseReference rewardsReference = userReference.child("rewards");
     private int currency = 0;
 
@@ -67,7 +68,6 @@ public class RewardsMainActivity extends AppCompatActivity implements RewardItem
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rewards_main);
 
-        //TODO: ValueEventListener for currency.
         ValueEventListener currencyListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -80,7 +80,7 @@ public class RewardsMainActivity extends AppCompatActivity implements RewardItem
                 Log.w("WARN", "No longer keeping up to date with user currency", error.toException());
             }
         };
-        userReference.addValueEventListener(currencyListener);
+        profileReference.addValueEventListener(currencyListener);
 
         ValueEventListener rewardsListener = new ValueEventListener() {
             @Override
@@ -142,8 +142,9 @@ public class RewardsMainActivity extends AppCompatActivity implements RewardItem
             currency = currency - reward.getPrice();
             reward.buyOne();
             rewardReference.setValue(reward);
-            userReference.child("currency").setValue(currency);
+            profileReference.child("currency").setValue(currency);
         };
+        rewardReference.get().addOnCompleteListener(listener);
     }
 
     @Override
@@ -166,6 +167,7 @@ public class RewardsMainActivity extends AppCompatActivity implements RewardItem
             reward.useOne();
             rewardReference.setValue(reward);
         };
+        rewardReference.get().addOnCompleteListener(listener);
     }
 
     @Override
